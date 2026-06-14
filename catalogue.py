@@ -84,7 +84,11 @@ def rechercher_par_auteur(livres, auteur):
     Returns:
         list: Les Livre correspondants (liste éventuellement vide).
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 4).")
+    ma_liste= []
+    for livre in livres :
+        if livre.auteur == auteur :
+            ma_liste.append(livre)
+    return ma_liste
 
 
 def rechercher_par_isbn(livres, isbn):
@@ -97,7 +101,10 @@ def rechercher_par_isbn(livres, isbn):
     Returns:
         Livre: Le livre correspondant, ou None s'il est absent.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 4).")
+    for livre in livres :
+        if livre.isbn == isbn :
+            return livre
+    return None
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -160,8 +167,8 @@ if __name__ == "__main__":
     CATALOGUE = [
         Livre("La Ferme des animaux", "Orwell", "9782070375165", 150, 1945),
         Livre("1984", "Orwell", "9780451524935", 328, 1949),
-        Livre("Le Meilleur des mondes", "Huxley", "9780060850524", 311, 1932),
-        Livre("Fahrenheit 451", "Bradbury", "9781451673319", 256, 1953),
+        Livre("Le Meilleur des mondes", "huxley", "9780060850524", 311, 1932),
+        Livre("Fahrenheit 451", "bradbury", "9781451673319", 256, 1953),
     ]  #j'ai du cree un CATALOGUE en fonction des simulation dans l'atelier(c'est pas trop exacte dans les donnees mais ca fonctionne bien)
 
     resultat_titres = [l.titre for l in trier_par_titre(CATALOGUE)]
@@ -178,3 +185,10 @@ if __name__ == "__main__":
 
     resultat_auteur_puis_annee = [(l.auteur, l.annee) for l in trier_par_auteur_puis_annee_recente(CATALOGUE)]
     print(resultat_auteur_puis_annee)
+
+    print("nombre de livre avec pour auteur 'Orwell' : ", len(rechercher_par_auteur(CATALOGUE,"Orwell")))
+    print("livre avec pour auteur 'inconu' : ", rechercher_par_auteur(CATALOGUE,"inconnu"))
+
+    print("livre avec pour isbn '9780451524935' : ", (rechercher_par_isbn(CATALOGUE,"9780451524935").titre))
+    print("livre avec pour isbn '0000000000000' : ", rechercher_par_isbn(CATALOGUE,"0000000000000"))
+    
