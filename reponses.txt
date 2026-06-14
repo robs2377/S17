@@ -28,7 +28,13 @@ Exercice 3 - reverse vs négation
 - Comment la négation du critère « année » résout-elle le problème ?
 
 [votre réponse ici]
+- reverse= True ne convient pas ici car en faisant reverse= True il s'applique sur tout le tuple , cela trierait 
+           par auteur d'ordre decroissant et en cas d'egaligalite il tri selon année recent mais 
 
+- la negation resoud en appliquant sur l'annee car par defaut le tri en python se fait selon l'ordre croissant
+  donc en fonction sur les auteurs le trie se fait bien mais pour que cela passe aussi bien sur annee il faut
+  commencer par le plus grand et pour avoir le plus grand par defaut il suffit de le transformer en plus petit
+  donc en mettant un (-) sur annee le plus recent devient premier element.
 
 ================================================================
 Exercice 5 - Dédoublonnage

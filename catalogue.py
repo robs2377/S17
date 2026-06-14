@@ -67,7 +67,7 @@ def trier_par_auteur_puis_annee_recente(livres):
     Returns:
         list: Une nouvelle liste triée.
     """
-    return sorted(livres, key=lambda livre: (livre.auteur, livre.annee))
+    return sorted(livres, key=lambda livre: (livre.auteur, -livre.annee))
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -158,20 +158,23 @@ def regrouper_par_auteur(livres):
 
 if __name__ == "__main__":
     CATALOGUE = [
+        Livre("La Ferme des animaux", "Orwell", "9782070375165", 150, 1945),
         Livre("1984", "Orwell", "9780451524935", 328, 1949),
         Livre("Le Meilleur des mondes", "Huxley", "9780060850524", 311, 1932),
         Livre("Fahrenheit 451", "Bradbury", "9781451673319", 256, 1953),
-        Livre("La Ferme des animaux", "Orwell", "9782070375165", 150, 1945) 
-    ]
+    ]  #j'ai du cree un CATALOGUE en fonction des simulation dans l'atelier(c'est pas trop exacte dans les donnees mais ca fonctionne bien)
 
     resultat_titres = [l.titre for l in trier_par_titre(CATALOGUE)]
     print(resultat_titres)
  
-    resultat_auteur = [(l.auteur, l.titre) for l in trier_par_auteur_puis_titre(CATALOGUE)]
-    print(resultat_auteur)
+    resultat_auteur_puis_titre = [(l.auteur, l.titre) for l in trier_par_auteur_puis_titre(CATALOGUE)]
+    print(resultat_auteur_puis_titre)
 
     resultat_annee = [l.annee for l in trier_par_annee(CATALOGUE)]
     print(resultat_annee)
 
     resultat_annee = [l.annee for l in trier_par_annee(CATALOGUE, recents_dabord=True)]
     print(resultat_annee)
+
+    resultat_auteur_puis_annee = [(l.auteur, l.annee) for l in trier_par_auteur_puis_annee_recente(CATALOGUE)]
+    print(resultat_auteur_puis_annee)
