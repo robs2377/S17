@@ -1,5 +1,5 @@
 Réponses ouvertes - Atelier S17 (structures de données objet)
-Prénom NOM :
+Prénom NOM : Robert Durel TOUNTCHA DJANKOU
 
 ================================================================
 Exercice 1 - Diagnostic du set
@@ -12,6 +12,14 @@ Exercice 1 - Diagnostic du set
 
 [votre réponse ici]
 
+- 4 livre ont été ajouté ; 3 livres ont été gardé 
+ c'est le livre ajouter " Livre("1984 (édition collector)", "Orwell", "9780451524935", 328, 1949)" 
+ qui a ete supprimé  
+
+- un set considere les livres aux titres differents comme un seul parceque la methode __eq__() qui definit 
+  l'egalité se base uniquement sur le numero isbn
+
+- les methodes mises en jeu sont les methodes __eq__()  et __hash__(); pas de bug mais decision de coneption 
 
 ================================================================
 Exercice 3 - reverse vs négation
