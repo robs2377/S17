@@ -45,3 +45,6 @@ Exercice 5 - Dédoublonnage
 - Que se passerait-il si Livre ne les définissait pas ?
 
 [votre réponse ici]
+- parceque l'egalité a ete deifinit uniquementsur l'isbn dans la classe Livre
+- les methodes __eq__() et __hash__() rendent cela possible 
+- si Livre ne les definissait pas ca devait etre impossible de supprimer les doublons 

@@ -120,7 +120,9 @@ def compter_distincts(livres):
     Returns:
         int: Nombre de livres distincts.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 5).")
+    new_livres = set(livres)
+    return len(new_livres)
+
 
 
 def dedoublonner(livres):
@@ -132,8 +134,7 @@ def dedoublonner(livres):
     Returns:
         list: Liste sans doublon, ordre de première apparition préservé.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 5).")
-
+    return list(dict.fromkeys(livres))
 
 # ──────────────────────────────────────────────────────────────────────
 # 4. Dictionnaires
@@ -165,11 +166,14 @@ def regrouper_par_auteur(livres):
 
 if __name__ == "__main__":
     CATALOGUE = [
-        Livre("La Ferme des animaux", "Orwell", "9782070375165", 150, 1945),
         Livre("1984", "Orwell", "9780451524935", 328, 1949),
         Livre("Le Meilleur des mondes", "huxley", "9780060850524", 311, 1932),
+        Livre("La Ferme des animaux", "Orwell", "9782070375165", 150, 1945),
         Livre("Fahrenheit 451", "bradbury", "9781451673319", 256, 1953),
     ]  #j'ai du cree un CATALOGUE en fonction des simulation dans l'atelier(c'est pas trop exacte dans les donnees mais ca fonctionne bien)
+
+    DOUBLON = Livre("1984 (réédition)", "Orwell", "9780451524935", 328, 1949)
+    AVEC_DOUBLON = CATALOGUE + [DOUBLON]
 
     resultat_titres = [l.titre for l in trier_par_titre(CATALOGUE)]
     print(resultat_titres)
@@ -191,4 +195,7 @@ if __name__ == "__main__":
 
     print("livre avec pour isbn '9780451524935' : ", (rechercher_par_isbn(CATALOGUE,"9780451524935").titre))
     print("livre avec pour isbn '0000000000000' : ", rechercher_par_isbn(CATALOGUE,"0000000000000"))
-    
+
+    print("nombre de livre distincts : ", compter_distincts(AVEC_DOUBLON))
+    print("nombre de livre non double : ", len(dedoublonner(AVEC_DOUBLON)))
+    print("'",dedoublonner(AVEC_DOUBLON)[0].titre,"'")
